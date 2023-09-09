@@ -1,4 +1,4 @@
-import { CheckInRepository } from '@/repositories/check-ins-repository'
+import { CheckInsRepository } from '@/repositories/check-ins-repository'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { CheckInUseCase } from './check-in'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
@@ -8,7 +8,7 @@ import { MaxDistanceError } from './errors/max-distance-error'
 import { MaxNumberOfCheckInsError } from './errors/max-number-of-check-ins-error'
 
 describe('Check-In Use Case', () => {
-  let checkInRepository: CheckInRepository
+  let checkInRepository: CheckInsRepository
   let gymRepository: GymsRepository
   let sut: CheckInUseCase
 
