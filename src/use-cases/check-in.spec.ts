@@ -4,6 +4,8 @@ import { CheckInUseCase } from './check-in'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { GymsRepository } from '@/repositories/gyms-repository'
 import { InMemoryGymRepository } from '@/repositories/in-memory/in-memory-gym-repository'
+import { MaxDistanceError } from './errors/max-distance-error'
+import { MaxNumberOfCheckInsError } from './errors/max-number-of-check-ins-error'
 
 describe('Check-In Use Case', () => {
   let checkInRepository: CheckInRepository
@@ -59,7 +61,7 @@ describe('Check-In Use Case', () => {
         userLatitude: -23.2947712,
         userLongitude: -46.7337216,
       }),
-    ).rejects.toBeInstanceOf(Error)
+    ).rejects.toBeInstanceOf(MaxNumberOfCheckInsError)
   })
 
   it('should be able to check in twice, but in different days', async () => {
@@ -101,6 +103,6 @@ describe('Check-In Use Case', () => {
         userLatitude: -23.2947712,
         userLongitude: -46.7337216,
       }),
-    ).rejects.toBeInstanceOf(Error)
+    ).rejects.toBeInstanceOf(MaxDistanceError)
   })
 })
