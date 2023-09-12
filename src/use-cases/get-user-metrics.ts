@@ -9,12 +9,12 @@ interface GetUserMetricsResponse {
 }
 
 export class GetUserMetricsUseCase {
-  constructor(private userRepository: CheckInsRepository) {}
+  constructor(private checkInsRepository: CheckInsRepository) {}
 
   async execute({
     userId,
   }: GetUserMetricsRequest): Promise<GetUserMetricsResponse> {
-    const checkInsCount = await this.userRepository.countByUserId(userId)
+    const checkInsCount = await this.checkInsRepository.countByUserId(userId)
 
     return {
       checkInsCount,
