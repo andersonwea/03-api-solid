@@ -2,7 +2,7 @@ import { afterAll, beforeAll, expect, it, test } from 'vitest'
 import request from 'supertest'
 import { app } from '@/app'
 
-test('ok', () => {
+test('Resgister (e2e)', () => {
   beforeAll(async () => {
     await app.ready()
   })
